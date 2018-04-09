@@ -6,6 +6,10 @@ import org.newdawn.slick.state.*;
 public class Play extends BasicGameState {
 
     private int x1 = 100;
+    Animation roman,carthaginian;
+    boolean ex = false;
+    float x = 0 , y = 0;
+    int [] waitingtime = {300,300};
 
     public Play(int state){
 
@@ -30,17 +34,19 @@ public class Play extends BasicGameState {
 //        }
         g.drawImage(new Image("res/Column.png"),0,100);
         g.drawImage(new Image("res/Column.png"),600-10,100);
-        g.drawImage(new Image("res/New Piskel (2)/Layer 1_sprite_1.png"), 200+x1, 450);
+        g.drawImage(new Image("res/New Piskel (2)/Layer 1_sprite_1.png"), 200+x, 450);
         g.drawImage(new Image("res/New Piskel (2)/Layer 1_sprite_2.png"),300,450);
+//        g.“SpriteSheet(Image image, int tw, int th);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+
         Input input = gc.getInput();
-        if (input.isControllerRight(Input.KEY_RIGHT))
-            x1-=1;
-        if (input.isControllerLeft(Input.KEY_LEFT))
-            x1+=1;
+        if (input.isKeyDown(Input.KEY_RIGHT))
+            x+=1*i;
+        else if (input.isControllerLeft(Input.KEY_LEFT))
+            x-=1*i;
     }
 }
 

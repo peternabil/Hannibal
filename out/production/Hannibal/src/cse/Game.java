@@ -17,6 +17,9 @@ public class Game extends StateBasedGame{
         try {
             appgc = new AppGameContainer(new Game(nameofgame));
             appgc.setDisplayMode(800,800,false);
+//            appgc.setFullscreen(true);
+            appgc.setShowFPS(false);
+            appgc.setIcon("res/roman/attack e0000.bmp");
             appgc.start();
         }catch (SlickException e){
             e.printStackTrace();
@@ -27,6 +30,6 @@ public class Game extends StateBasedGame{
     public void initStatesList(GameContainer gc) throws SlickException {
         this.getState(menu).init(gc,this);
         this.getState(play).init(gc,this);
-        this.enterState(play);
+        this.enterState(menu);
     }
 }
